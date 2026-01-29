@@ -1,0 +1,134 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b1a2b;
+  --panel: #101f33;
+  --panel-2: #13263f;
+  --text: #e6f0ff;
+  --muted: #a2b3cc;
+  --accent: #4da3ff;
+  --accent-2: #7bd389;
+  --border: #1f3555;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #142a46 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem clamp(1.5rem, 3vw, 4rem) 2rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #122944, #0b1a2b);
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+}
+
+.sub {
+  margin: 0;
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem clamp(1.5rem, 3vw, 4rem);
+}
+
+.card {
+  background: linear-gradient(160deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  min-height: 180px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.status {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.status li {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: #142a46;
+  color: var(--text);
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #2a7be5, #4da3ff);
+  border: none;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.callout {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px dashed var(--accent);
+  background: rgba(77, 163, 255, 0.1);
+}
+
+.app-footer {
+  padding: 2rem clamp(1.5rem, 3vw, 4rem) 3rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PWA Lab — Demo de Funcionalidades</title>
+    <meta name="description" content="Experiência local de funcionalidades PWA: offline, instalação, notificações locais e mais." />
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0b1a2b" />
+    <meta name="background-color" content="#0b1a2b" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="PWA Lab" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/icons/icon-192.svg" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/assets/icons/icon-512.svg" />
+
+    <!-- Splash screens (placeholders - substituir por PNG reais) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/splash/splash-640x1136.svg" />
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/assets/splash/splash-750x1334.svg" />
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/assets/splash/splash-1125x2436.svg" />
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/assets/splash/splash-1242x2688.svg" />
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/assets/splash/splash-1536x2048.svg" />
+    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/assets/splash/splash-2048x2732.svg" />
+
+    <link rel="stylesheet" href="/styles.css" />
+    <script defer src="/app.js"></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">PWA Lab</p>
+        <h1>Experiência completa de PWA (local)</h1>
+        <p class="sub">Offline, instalação, notificações locais e estado das APIs — tudo num só lugar.</p>
+      </div>
+      <button class="btn primary" id="installBtn" hidden>Instalar app</button>
+    </header>
+
+    <main class="grid">
+      <section class="card" id="capabilities">
+        <h2>Estado das capacidades</h2>
+        <ul class="status" id="capabilitiesList"></ul>
+      </section>
+
+      <section class="card" id="installation">
+        <h2>Instalação</h2>
+        <p>Botão aparece quando o navegador permitir a instalação. Em iOS, usa “Adicionar ao ecrã principal”.</p>
+        <div class="row">
+          <button class="btn" id="installHelpBtn">Mostrar instruções</button>
+          <span id="installStatus" class="muted"></span>
+        </div>
+        <div id="installHelp" class="callout" hidden>
+          <strong>iOS:</strong> Partilhar → “Adicionar ao ecrã principal”.<br />
+          <strong>Desktop:</strong> Ícone de instalação na barra de endereço.
+        </div>
+      </section>
+
+      <section class="card" id="offline">
+        <h2>Offline</h2>
+        <p>Este app funciona offline (cache + fallback). Desliga a internet e tenta recarregar.</p>
+        <div class="row">
+          <button class="btn" id="cacheTestBtn">Testar recurso</button>
+          <span id="cacheTestResult" class="muted"></span>
+        </div>
+      </section>
+
+      <section class="card" id="notifications">
+        <h2>Notificações (local)</h2>
+        <p>Sem servidor. Apenas permissões e <em>local notification</em> via Service Worker.</p>
+        <div class="row">
+          <button class="btn" id="notifyBtn">Enviar notificação local</button>
+          <span id="notifyStatus" class="muted"></span>
+        </div>
+      </section>
+
+      <section class="card" id="storage">
+        <h2>Armazenamento local (IndexedDB)</h2>
+        <p>Guarda um exemplo simples e mostra o último valor.</p>
+        <div class="row">
+          <button class="btn" id="idbSaveBtn">Guardar valor</button>
+          <span id="idbValue" class="muted"></span>
+        </div>
+      </section>
+
+      <section class="card" id="share">
+        <h2>Partilha (Web Share)</h2>
+        <p>Se suportado, partilha esta página.</p>
+        <div class="row">
+          <button class="btn" id="shareBtn">Partilhar</button>
+          <span id="shareStatus" class="muted"></span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Substitui os assets em <strong>/assets</strong> por imagens reais de ícones, screenshots e splash screens.</p>
+    </footer>
+  </body>
+</html>
